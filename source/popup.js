@@ -79,7 +79,7 @@ $(function () {
 	});
 	key('down,right', function () {
 		var current = $('.action:focus');
-		if (current.length === 0) {
+		if (0 === current.length) {
 			$('.action:first').focus();
 		} else {
 			current.parent().next().find('a').focus();
@@ -87,7 +87,7 @@ $(function () {
 	});
 	key('up,left', function () {
 		var current = $('.action:focus');
-		if (current.length === 0) {
+		if (0 === current.length) {
 			$('.action:last').focus();
 		} else {
 			current.parent().prev().find('a').focus();

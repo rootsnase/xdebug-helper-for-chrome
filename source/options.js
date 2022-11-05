@@ -20,7 +20,7 @@
 			idekey = 'XDEBUG_ECLIPSE';
 		}
 		
-		if (idekey == 'XDEBUG_ECLIPSE' || idekey == 'netbeans-xdebug' || idekey == 'macgdbp' || idekey == 'PHPSTORM') {
+		if ('XDEBUG_ECLIPSE' === idekey || 'netbeans-xdebug' === idekey || 'macgdbp' === idekey || 'PHPSTORM' === idekey) {
 			$('#ide').val(idekey);
 			$('#idekey').prop('disabled', true);
 		} else {
@@ -31,7 +31,7 @@
 		
 		// Restore Trace Triggers
 		var traceTrigger = localStorage['xdebugTraceTrigger'];
-		if (traceTrigger !== null) {
+		if (null !== traceTrigger) {
 			$('#tracetrigger').val(traceTrigger);
 		} else {
 			$('#tracetrigger').val(null);
@@ -39,21 +39,19 @@
 		
 		// Restore Profile Triggers
 		var profileTrigger = localStorage['xdebugProfileTrigger'];
-		if (profileTrigger !== null) {
+		if (null !== profileTrigger) {
 			$('#profiletrigger').val(profileTrigger);
 		} else {
 			$('#profiletrigger').val(null);
 		}
 		
 		// Restore Disable Popup
-		document.getElementById('disable-popup').checked = (localStorage.xdebugDisablePopup === '1') ?
-			true :
-			false;
+		document.getElementById('disable-popup').checked = ('1' === localStorage.xdebugDisablePopup);
 	}
 	
 	$(function () {
 		$('#ide').change(function () {
-			if ($('#ide').val() != 'null') {
+			if ('null' !== $('#ide').val()) {
 				$('#idekey').prop('disabled', true);
 				$('#idekey').val($('#ide').val());
 				
