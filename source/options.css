@@ -39,6 +39,15 @@ a {
 	color            : #ffffff;
 	padding          : 20px;
 }
+h1{
+	font-size: 1.5em;
+}
+.area{
+	padding: 1em 1em;
+}
+.area:hover{
+	background: aliceblue;
+}
 
 .inlineicon {
 	vertical-align : bottom;
@@ -84,31 +93,65 @@ a {
 }
 
 .contribute {
-	font-size       : 10px;
+	display         : flex;
+	justify-content : flex-start;
+
+
+}
+
+
+.contribute a {
+
+	margin-left     : 1em;
 	color           : #808080;
-	float           : left;
+	display         : inline-flex;
 	text-decoration : none;
 }
 
-.contribute span {
+.contribute a:hover {
 	text-decoration : underline;
 }
 
-.color--green {
-	color : #4CAF50;
+.contribute svg {
+	margin-right : .2em;
 }
 
-.color--blue {
+.contribute img {
+	margin-top  : 0.2em;
+	width       : 16px;
+	height      : 16px;
+	margin-left : 0.3em;
+}
+
+
+.color--green, .color--green svg {
+	color  : #4CAF50;
+	stroke : #4CAF50;
+	fill   : #4CAF50;
+}
+
+
+.color--blue ,
+.color--blue svg {
 	color : #039BE5;
+	stroke : #039BE5;
+	fill   : #039BE5;
 }
 
-.color--deep-purple {
-	color : #673AB7;
+.color--deep-purple,
+.color--deep-purple svg {
+	color  : #673AB7;
+	stroke : #673AB7;
+	fill   : #673AB7;
 }
 
-.color--gray {
-	color : #6D6D6D;
+.color--gray,
+.color--gray svg {
+	color  : #6D6D6D;
+	stroke : #6D6D6D;
+	fill   : #6D6D6D;
 }
+
 
 .material-icons {
 	font-size    : 18px;
@@ -123,4 +166,20 @@ a {
 	color       : #5cb85c;
 	font-weight : bold;
 	margin-left : 5px;
+}
+
+
+.txtlink {
+	display : inline-flex;
+}
+
+.txtlink:hover {
+	text-decoration : underline;
+}
+
+.target-blank {
+	margin-top  : .15em;
+	margin-left : .3em;
+	width       : 1em;
+	height      : 1em;
 }

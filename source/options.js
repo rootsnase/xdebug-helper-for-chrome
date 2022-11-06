@@ -1,94 +1,140 @@
 (function () {
 	
+	const sIDE = 'ide';
+	/**
+	 * string constant
+	 * @type {string}
+	 */
+	const sIDEKEY = 'idekey';
+	/**
+	 * string constant
+	 * @type {string}
+	 */
+	const sTRACETRIGGER = 'tracetrigger';
+	/**
+	 * string constant
+	 * @type {string}
+	 */
+	const sPROFILETRIGGER = 'profiletrigger';
+	
+	const sDISABLE_POPUP = 'disable-popup';
 	// setTimeout() return value
 	let disablePopupTimeout;
 	
-	function save_options() {
-		localStorage['xdebugIdeKey'] = document.getElementById('idekey').value;
-		localStorage['xdebugTraceTrigger'] = document.getElementById('tracetrigger').value;
-		localStorage['xdebugProfileTrigger'] = document.getElementById('profiletrigger').value;
-		localStorage.xdebugDisablePopup = document.getElementById('disable-popup').checked ?
+	/**
+	 * getElementById
+	 * @param name
+	 * @returns {HTMLElement}
+	 */
+	const getEle = name => document.getElementById(name);
+	/**
+	 * getValue ElementById
+	 * @param name
+	 * @returns {*}
+	 */
+	const getEleVal = name => getEle(name).value;
+	/**
+	 *
+	 */
+	const saveOptions = () => {
+		
+		localStorage['xdebugIdeKey'] = getEleVal(sIDEKEY);
+		localStorage['xdebugTraceTrigger'] = getEleVal(sTRACETRIGGER);
+		localStorage['xdebugProfileTrigger'] = getEleVal(sPROFILETRIGGER);
+		
+		localStorage.xdebugDisablePopup = getEle(sDISABLE_POPUP).checked ?
 			'1' :
 			'0';
-	}
-	
-	function restore_options() {
+	};
+	/**
+	 *
+	 */
+	const restoreOptions = () => {
 		// Restore IDE Key
-		idekey = localStorage['xdebugIdeKey'];
+		const idekey = localStorage['xdebugIdeKey'] || 'XDEBUG_ECLIPSE';
 		
-		if (!idekey) {
-			idekey = 'XDEBUG_ECLIPSE';
-		}
+		const ideE = getEle(sIDE);
+		const idekeyE = getEle(sIDEKEY);
 		
 		if ('XDEBUG_ECLIPSE' === idekey || 'netbeans-xdebug' === idekey || 'macgdbp' === idekey || 'PHPSTORM' === idekey) {
-			$('#ide').val(idekey);
-			$('#idekey').prop('disabled', true);
+			ideE.value = idekey;
+			idekeyE.setAttribute('disabled', 'true');
+			
 		} else {
-			$('#ide').val('null');
-			$('#idekey').prop('disabled', false);
+			ideE.value = 'null';
+			idekeyE.removeAttribute('disabled');
 		}
-		$('#idekey').val(idekey);
+		idekeyE.value = idekey;
 		
 		// Restore Trace Triggers
-		var traceTrigger = localStorage['xdebugTraceTrigger'];
-		if (null !== traceTrigger) {
-			$('#tracetrigger').val(traceTrigger);
-		} else {
-			$('#tracetrigger').val(null);
-		}
+		
+		getEle(sTRACETRIGGER).value = localStorage['xdebugTraceTrigger'] !== undefined ?
+			localStorage['xdebugTraceTrigger'] :
+			null;
 		
 		// Restore Profile Triggers
-		var profileTrigger = localStorage['xdebugProfileTrigger'];
-		if (null !== profileTrigger) {
-			$('#profiletrigger').val(profileTrigger);
-		} else {
-			$('#profiletrigger').val(null);
-		}
+		getEle(sPROFILETRIGGER).value = localStorage['xdebugProfileTrigger'] !== undefined ?
+			localStorage['xdebugTraceTrigger'] :
+			null;
 		
 		// Restore Disable Popup
-		document.getElementById('disable-popup').checked = ('1' === localStorage.xdebugDisablePopup);
-	}
-	
-	$(function () {
-		$('#ide').change(function () {
-			if ('null' !== $('#ide').val()) {
-				$('#idekey').prop('disabled', true);
-				$('#idekey').val($('#ide').val());
-				
-				save_options();
-			} else {
-				$('#idekey').prop('disabled', false);
-			}
-		});
-		
-		$('#idekey').change(save_options);
-		
-		// Persist Disable Popup on onChange event
-		$('#disable-popup').change(disablePopupChanged);
-		
-		$('.save-button').click(save_options);
-		
-		restore_options();
-	});
+		getEle(sDISABLE_POPUP).checked = ('1' === localStorage.xdebugDisablePopup);
+	};
 	
 	/**
 	 * Disable Popup checkbox changed, persist it.
 	 */
-	function disablePopupChanged() {
-		const $disablePopupSaved = $('.disable-popup-saved');
+	const disablePopupChanged = () => {
+		const disablePopupSaved = document.getElementsByClassName('disable-popup-saved')[0].classList;
 		
-		$disablePopupSaved.addClass('show');
+		disablePopupSaved.add('show');
 		
 		// First clear interval
 		clearInterval(disablePopupTimeout);
 		// Hide after 2 seconds
-		disablePopupTimeout = setTimeout(() => $disablePopupSaved.removeClass('show'), 2000);
+		disablePopupTimeout = setTimeout(() => disablePopupSaved.remove('show'), 2000);
 		
 		// Persist
-		save_options();
+		saveOptions();
 		
 		// We need to reload the extension, because to hide the popup
-		chrome.extension.getBackgroundPage().window.location.reload(true);
-	}
+		chrome.extension.getBackgroundPage().window.location.reload();
+	};
 	
+	const init = () => {
+		const ideE = getEle(sIDE);
+		const idekeyE = getEle(sIDEKEY);
+		
+		ideE.addEventListener('change', () => {
+			
+			if (ideE.value) {
+				
+				idekeyE.setAttribute('disabled', 'true');
+				idekeyE.value = ideE.value;
+				
+				saveOptions();
+			} else {
+				idekeyE.removeAttribute('disabled');
+			}
+		});
+		idekeyE.addEventListener('change', saveOptions);
+		
+		// Persist Disable Popup on onChange event
+		getEle(sDISABLE_POPUP).addEventListener('change', disablePopupChanged);
+		attachSaveBtns();
+		restoreOptions();
+	};
+	
+	const attachSaveBtns = () => {
+		
+		[].forEach.call(document.getElementsByClassName('save-button'), ele => {
+			ele.addEventListener('click', saveOptions);
+		});
+		
+		
+		
+	};
+	
+	// init loader
+	window.addEventListener('DOMContentLoaded', init);
 })();

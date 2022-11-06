@@ -1,5 +1,21 @@
-XDebug Helper for Google Chrome
+XDebug Helper 2022 for Chromium-Browsers
 ===============================
+
+### Relaunch 2022
+
+* [forked from mac-cain13/xdebug-helper-for-chrome](https://github.com/mac-cain13/xdebug-helper-for-chrome)
+
+
+### noteable changes 
+
+* the configuration javascript was refactored into vanilla. so jquery removed
+* remote call to google webfonts[sic!] was removed! 
+  * svg-icons from https://fonts.google.com/icons
+
+image src:
+icons from google https://fonts.google.com/icons
+
+--
 
 Debugging, profiling and tracing PHP code with [Xdebug](http://xdebug.org/) is very powerful, but enabling
 Xdebug with cookies or adding POST/GET variables is way too hard. This extension will help you to enable/disable

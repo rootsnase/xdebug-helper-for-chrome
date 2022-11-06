@@ -1,8 +1,8 @@
 {
-  "name": "Xdebug helper",
+  "name": "XDebug Helper 2022 for Chromium-Browsers",
   "description": "Easy debugging, profiling and tracing extension for Xdebug",
-  "version": "1.6.1",
-  "author": "Mathijs Kadijk",
+  "version": "2.0.0",
+  "author": "github.com/rootsnase original:Mathijs Kadijk",
   "manifest_version": 2,
   "minimum_chrome_version": "20",
   "permissions": [

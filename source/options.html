@@ -2,72 +2,94 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Xdebug helper</title>
+	<title>XDebug Helper 2022 for Chromium-Browsers</title>
 	<link rel="stylesheet" href="options.css">
-	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="options.js"></script>
 </head>
 <body>
 <div id="content">
 	<div id="heading">
-		<h1>Xdebug helper</h1>
+		<h1>XDebug Helper 2022 for Chromium-Browsers</h1>
 		<p>Easy debugging, profiling and tracing</p>
 	</div>
 	<h3>Introduction</h3>
 	<p class="contentTxt">
-		First install and configure <a target="_blank" class="txtlink" href="http://www.xdebug.org/docs/install">Xdebug</a>, then set your IDE key
+		First install and configure <a target="_blank" class="txtlink" href="https://www.xdebug.org/docs/install">Xdebug
+		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="target-blank">
+			<path stroke-linecap="round" stroke-linejoin="round"
+				  d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+		</svg>
+	</a>, then set your IDE key
 		below. Now tell Xdebug to debug, profile or trace by clicking the little bug in the addressbar:
 	</p>
 	<p class="contentTxt">
-		<i class="material-icons color--gray">bug_report</i> Debugging, profiling &amp; tracing disabled<br />
-		<i class="material-icons color--green">bug_report</i> Debugging enabled<br />
-		<i class="material-icons color--blue">alarm</i> Profiling enabled<br />
-		<i class="material-icons color--deep-purple">find_in_page</i> Tracing enabled
+		<i class="material-icons color--gray">
+			<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48">
+				<path d="M24 42q-3.25 0-6.05-1.55T13.8 36H8v-3h4.6q-.35-1.3-.35-2.625V27.7h-4.3v-3h4.3q0-1.45.025-2.875T12.7 19H8v-3h6q.7-1.4 1.85-2.45Q17 12.5 18.4 11.8L14.55 8l2-2 4.7 4.7q1.4-.5 2.825-.5 1.425 0 2.825.5L31.6 6l2 2-3.8 3.8q1.4.7 2.475 1.775Q33.35 14.65 34.15 16h5.9v3H35.3q.45 1.4.425 2.825Q35.7 23.25 35.7 24.7h4.35v3H35.7q0 1.35.025 2.675Q35.75 31.7 35.4 33h4.65v3h-5.8q-1.3 2.95-4.125 4.475Q27.3 42 24 42Zm0-3q3.6 0 6.15-2.525 2.55-2.525 2.55-6.125V22q0-3.6-2.55-6.125T24 13.35q-3.6 0-6.15 2.525Q15.3 18.4 15.3 22v8.35q0 3.6 2.55 6.125T24 39Zm-4-7h8v-3h-8Zm0-8.65h8v-3h-8Zm4 2.85h.025H24h.025H24h.025H24h.025H24Z" />
+			</svg>
+		</i> Debugging, profiling &amp; tracing disabled<br />
+		<i class="material-icons color--green">
+			<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48">
+				<path d="M24 42q-3.25 0-6.05-1.55T13.8 36H8v-3h4.6q-.35-1.3-.35-2.625V27.7h-4.3v-3h4.3q0-1.45.025-2.875T12.7 19H8v-3h6q.7-1.4 1.85-2.45Q17 12.5 18.4 11.8L14.55 8l2-2 4.7 4.7q1.4-.5 2.825-.5 1.425 0 2.825.5L31.6 6l2 2-3.8 3.8q1.4.7 2.475 1.775Q33.35 14.65 34.15 16h5.9v3H35.3q.45 1.4.425 2.825Q35.7 23.25 35.7 24.7h4.35v3H35.7q0 1.35.025 2.675Q35.75 31.7 35.4 33h4.65v3h-5.8q-1.3 2.95-4.125 4.475Q27.3 42 24 42Zm0-3q3.6 0 6.15-2.525 2.55-2.525 2.55-6.125V22q0-3.6-2.55-6.125T24 13.35q-3.6 0-6.15 2.525Q15.3 18.4 15.3 22v8.35q0 3.6 2.55 6.125T24 39Zm-4-7h8v-3h-8Zm0-8.65h8v-3h-8Zm4 2.85h.025H24h.025H24h.025H24h.025H24Z" />
+			</svg>
+		</i> Debugging enabled<br />
+		<i class="material-icons color--blue">
+			<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48">
+				<path d="M23.95 43.9q-3.7 0-6.975-1.4-3.275-1.4-5.7-3.825-2.425-2.425-3.85-5.7Q6 29.7 6 25.95q0-3.7 1.425-6.975 1.425-3.275 3.85-5.725 2.425-2.45 5.7-3.85Q20.25 8 23.95 8q3.7 0 6.975 1.4 3.275 1.4 5.725 3.85 2.45 2.45 3.85 5.725 1.4 3.275 1.4 6.975 0 3.75-1.4 7.025-1.4 3.275-3.85 5.7Q34.2 41.1 30.925 42.5q-3.275 1.4-6.975 1.4Zm0-17.85ZM30 34.1l2.1-2.1-6.5-6.5V16h-3v10.7ZM10.7 4.65l2.1 2.1-8.2 7.9-2.1-2.1Zm26.5 0 8.2 7.9-2.1 2.1-8.2-7.9ZM23.95 40.9q6.25 0 10.6-4.35t4.35-10.6q0-6.25-4.35-10.6T23.95 11q-6.25 0-10.6 4.35T9 25.95q0 6.25 4.35 10.6t10.6 4.35Z" />
+			</svg>
+		</i> Profiling enabled<br />
+		<i class="material-icons color--deep-purple">
+			<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48">
+				<path d="M24 30.4q1.85 0 3.1-1.25t1.25-3.1q0-1.85-1.25-3.1T24 21.7q-1.85 0-3.1 1.25t-1.25 3.1q0 1.85 1.25 3.1T24 30.4ZM36.8 41l-8.7-8.7q-1 .6-1.975.85-.975.25-2.125.25-3.1 0-5.225-2.125-2.125-2.125-2.125-5.225 0-3.1 2.125-5.225Q20.9 18.7 24 18.7q3.1 0 5.225 2.125 2.125 2.125 2.125 5.225 0 1.15-.325 2.2-.325 1.05-.975 1.85L37 37.05V16.9L28.4 7H11v34ZM11 44q-1.2 0-2.1-.9Q8 42.2 8 41V7q0-1.2.9-2.1Q9.8 4 11 4h18.6L40 15.95V41q0 1.2-.9 2.1-.9.9-2.1.9Zm14.5-18.9Z" />
+			</svg>
+		</i> Tracing enabled
 	</p>
 	<p class="hint">Use Ctrl+Shift+X (Cmd+Shift+X on Mac) to open the popup or Alt+Shift+X to toggle the debugging state.</p>
-	<h3>IDE key</h3>
-	<p class="note">Select your IDE to use the default sessionkey or choose other to use a custom key.</p>
-	<p>
-		<select id="ide">
-			<option value="XDEBUG_ECLIPSE">Eclipse</option>
-			<option value="netbeans-xdebug">Netbeans</option>
-			<option value="macgdbp">MacGDBp</option>
-			<option value="PHPSTORM">PhpStorm</option>
-			<option value="null">Other</option>
-		</select>
-		<span id="customkey"><input type="text" id="idekey" /> </span>
+	<div class="area">
+		<h3>IDE key</h3>
+		<label>Select your IDE to use the default sessionkey or choose other to use a custom key.<<br />
+			<select id="ide">
+				<option value="XDEBUG_ECLIPSE">Eclipse</option>
+				<option value="netbeans-xdebug">Netbeans</option>
+				<option value="macgdbp">MacGDBp</option>
+				<option value="PHPSTORM">PhpStorm</option>
+				<option value="null">Other</option>
+			</select>
+		</label>
+		<label id="customkey"><input type="text" id="idekey" /></label>
 		<button class="save-button">Save</button>
-	</p>
-	<h3>Trace Trigger Value</h3>
-	<p class="note">If your xdebug is configured with a unique trace trigger key,
-		set that value here. This value is blank by default.</p>
-	<p>
-		<input type="text" id="tracetrigger" value="">
+	</div>
+	<div class="area">
+		<h3>Trace Trigger Value</h3>
+		<label>If your xdebug is configured with a unique trace trigger key,
+			set that value here. This value is blank by default.<br />
+			<input type="text" id="tracetrigger" value=""></label>
 		<button class="save-button">Save</button>
-	</p>
-	<h3>Profile Trigger Value</h3>
-	<p class="note">If your xdebug is configured with a unique profile trigger key,
-		set that value here. This value is blank by default.</p>
-	<p>
-		<input type="text" id="profiletrigger" value="">
+	</div>
+	<div class="area"><h3>Profile Trigger Value</h3>
+		<label>If your xdebug is configured with a unique profile trigger key,
+			set that value here. This value is blank by default.<br />
+			<input type="text" id="profiletrigger" value=""></label>
 		<button class="save-button">Save</button>
-	</p>
-	<h3>Disable Popup</h3>
-	<p class="note">
-		If checked, xdebug session will be enabled / disabled by left click on the
-		xdebug helper icon, xdebug helper's popup will be disabled.
-	</p>
-	<p>
-		<label>
+	</div>
+	<div class="area">
+		<h3>Disable Popup</h3>
+		<label>If checked, xdebug session will be enabled / disabled by left-click on the
+			xdebug helper icon, xdebug helper's popup will be disabled.<br />
 			<input type="checkbox" id="disable-popup" value="1">
 			<span>Disable Popup</span>
 		</label>
 		<span class="disable-popup-saved fade">Saved</span>
-	</p>
+	</div>
 	<footer id="footer">
-		<a href="https://github.com/mac-cain13/xdebug-helper-for-chrome" class="contribute" target="_blank">
-			Feel free to submit ideas, bugs and pull request to our <span>Github project</span>
-		</a>
+		<span class="contribute">
+			<span>Feel free to submit ideas, bugs and pull request to our </span><a href="https://github.com/rootsnase/xdebug-helper-for-chrome"
+																					target="_blank">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="target-blank">
+			<path stroke-linecap="round" stroke-linejoin="round"
+				  d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+		</svg> Github project <img width="32" height="32" alt="Github Project" src="./images/GitHub-Mark-32px.png">
+		</a></span>
 	</footer>
 </div>
 </body>
